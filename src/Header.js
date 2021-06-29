@@ -3,7 +3,7 @@ import "./Header.css";
 import Avatar from '@material-ui/core/Avatar';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import SearchIcon from '@material-ui/icons/Search';
-
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 const Header = () => {
     return (
         <div className="header">
@@ -20,11 +20,12 @@ const Header = () => {
                 {/* Search icon */}
                 <SearchIcon />
                 {/* input */}
-                <input type="Search Cleaver Programmer" />
+                <input type="text" Placeholder="Search Cleaver Programmer" />
 
             </div>
             <div className="header__right">
                 {/* help icon */}
+                <HelpOutlineIcon />
             </div>
 
         </div>
