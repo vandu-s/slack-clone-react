@@ -5,10 +5,11 @@ import StarBorderIcon from '@material-ui/icons/StarBorder';
 
 import "./Chat.css"
 import db from './firebase';
+import Message from './Message'
 const Chat = () => {
     const { roomId } = useParams();
     const [roomDetails, setRoomDetails] = useState(null);
-    const [roomMessages, setRoomMessages] = useState(null)
+    const [roomMessages, setRoomMessages] = useState([])
 
     useEffect(() => {
         if (roomId) {
@@ -48,6 +49,18 @@ const Chat = () => {
 
                     </p>
                 </div>
+            </div>
+            <div className="chat__messages">
+                {/* Message */}
+                {roomMessages.map(({ message, timestamp, username, userImage }) => (
+
+                    <Message
+                        message={message}
+                        timestamp={timestamp}
+                        user={username}
+                        userImage={userImage} />
+
+                ))}
             </div>
         </div>
     )
