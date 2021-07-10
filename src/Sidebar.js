@@ -12,8 +12,12 @@ import AppsIcon from '@material-ui/icons/Apps';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import AddIcon from '@material-ui/icons/Add';
-import db from "./firebase"
+import db from "./firebase";
+import { useStateValue } from './StateProvider'
+
 function Sidebar() {
+    const [{ user }] = useStateValue();
+
     const [channels, setChannels] = useState([]);
     useEffect(() => {
         //Run this code when the sidebar component loads
@@ -35,7 +39,7 @@ function Sidebar() {
                     <h2>Cleaver Programmer</h2>
                     <h3>
                         <FiberManualRecordIcon />
-                        Vandana Singandipe
+                        {user?.displayName}
                     </h3>
                 </div>
                 <CreateIcon />

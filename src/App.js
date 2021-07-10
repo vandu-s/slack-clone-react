@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import Header from "./Header"
-import Sidebar from './Sidebar'
+import Sidebar from './Sidebar';
+import { useHistory } from 'react-router-dom'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
 import Chat from './Chat'
-import Login from "./Login"
+import Login from "./Login";
+import { useStateValue } from './StateProvider';
 function App() {
-  const [user, setUser] = useState(null);
-
+  const history = useHistory();
+  const [{ user }, dispatch] = useStateValue();
   return (
     <div className="App">
       {/* Header */}
